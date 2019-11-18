@@ -1,4 +1,7 @@
 # Localization file (italian).
+TEXT_BLOB = 'Seleziona in quale lingua è inserito il testo e inserisci il numero: '
+LANGUAGE_1 = '1 - Russian'
+LANGUAGE_2 ='2 - English'
 TEXT = 'Inserisci il testo: '
 VOWELS = 'aeiou'
 SENTENCES = 'Proposte: '
@@ -11,3 +14,7 @@ TEXT_EASY = 'Il testo è molto facile da leggere (per gli studenti più giovani)
 TEXT_SIMPLE = 'Testo semplice (per studenti).'
 TEXT_LITTLE_HARD = "Il testo è un po 'difficile da leggere (per gli studenti)."
 TEXT_DIFFICULT = 'Il testo è difficile da leggere (per i laureati).'
+ENGLISH_SIMPLE = 'Testo in chiaro inglese.'
+DIFFICULT = "Un po 'difficile da leggere."
+VERY_HARD = 'Molto difficile da leggere.'
+OBJECTIVITY = 'Obiettività: '
