@@ -25,7 +25,7 @@ if choise == 1:
 
     sentences = text.count('.')
     words = text.count(' ') + 1
-    vowels = lc.VOWELS
+    vowels = 'аеёиоуыэюя'
     syllables = 0
     for i in text:
         if i in vowels:
@@ -56,7 +56,7 @@ elif choise == 2:
 
     sentences = text.count('.')
     words = text.count(' ') + 1
-    vowels = lc.VOWELS
+    vowels = 'aeiouy'
     syllables = 0
 
     for i in text:
@@ -84,4 +84,4 @@ elif choise == 2:
     tonality = testimonial.sentiment.polarity * 100
     objectivity = (1 - testimonial.sentiment.subjectivity) * 100
     print(tonality)
-    print('Объективность:', format(objectivity, '.1f') + '%')
+    print(lc.OBJECTIVITY, format(objectivity, '.1f') + '%')
