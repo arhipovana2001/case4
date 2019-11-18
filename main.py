@@ -1,4 +1,3 @@
-#case4
 """Case-study #3 Анализ текста
 Developers: Revtova L.
             Arkhipova A.
@@ -82,6 +81,7 @@ elif choise == 2:
         print(lc.VERY_HARD)
 
     testimonial = tb.TextBlob(text)
-    print(lc.OBJECTIVITY, end='')
-    print(format(testimonial.sentiment.polarity * 100, '.1f')
-          + '%')
+    tonality = testimonial.sentiment.polarity * 100
+    objectivity = (1 - testimonial.sentiment.subjectivity) * 100
+    print(tonality)
+    print('Объективность:', format(objectivity, '.1f') + '%')
