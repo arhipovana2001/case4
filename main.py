@@ -4,64 +4,84 @@ Developers: Revtova L.
             Arkhipova A.
 
 """
+
+import local
+choose = int(input((local.CHOOSE)))
+if choose == 1:
+    import local_english as lc
+elif choose == 2:
+    import local_russian as lc
+elif choose == 3:
+    import local_italian as lc
+
 import textblob as tb
-print('Выберите на каком языке вводится текст и введите число:')
-print('1 - Русский\n'
-      '2 - English')
+print(lc.TEXT_BLOB)
+print(lc.LANGUAGE_1)
+print(lc.LANGUAGE_2)
 choise = int(input())
 if choise == 1:
-    text = input("Введите текст:")
+
+    text = input(lc.TEXT)
     text = text.lower()
 
     sentences = text.count('.')
     words = text.count(' ') + 1
-    syllables = text.count('ё') + text.count('у') + text.count('е') + text.count('ы') + text.count('а') + text.count('о') + text.count('э') + text.count('я') + text.count('и') + text.count('ю')
+    vowels = lc.VOWELS
+    syllables = 0
+    for i in text:
+        if i in vowels:
+            syllables += 1
     avrg_stns_len = words / sentences
     avrg_wrd = syllables / words
     index = 206.835 - (1.3 * avrg_stns_len) - (60.1 * avrg_wrd)
 
-
-    print('Предложений:', sentences)
-    print('Слов:', words)
-    print('Слогов:', syllables)
-    print('Средняя длина предложения в словах:', avrg_stns_len)
-    print('Средняя длина слова в слогах:', avrg_wrd)
-    print('Индекс удобочитаемости Флеша:', index)
+    print(lc.SENTENCES, sentences)
+    print(lc.WORD, words)
+    print(lc.SYLLABLES, syllables)
+    print(lc.AVERAGE_SENTENCES, avrg_stns_len)
+    print(lc.AVERAGE_WORD, avrg_wrd)
+    print(lc.INDEX_FLESH, index)
 
     if index > 80:
-        print('Текст очень легко читается (для младших школьников).')
+        print(lc.TEXT_EASY)
     elif index > 50:
-        print('Простой текст (для школьников).')
+        print(lc.TEXT_SIMPLE)
     elif index > 25:
-        print('Текст немного трудно читать (для студентов).')
+        print(lc.TEXT_LITTLE_HARD)
     else:
-        print('Текст трудно читается (для выпускников ВУЗов).')
+        print(lc.TEXT_DIFFICULT)
+
 elif choise == 2:
-    text = input("Введите текст:")
+    text = input(lc.TEXT)
     text = text.lower()
 
     sentences = text.count('.')
     words = text.count(' ') + 1
-    syllables = text.count('e') + text.count('y') + text.count('u') + text.count('i') + text.count('o') + text.count(
-        'a')
+    vowels = lc.VOWELS
+    syllables = 0
+
+    for i in text:
+        if i in vowels:
+            syllables += 1
     avrg_stns_len = words / sentences
     avrg_wrd = syllables / words
-    index = 206.835 - 1.015 * avrg_stns_len - 84.6 * avrg_wrd
+    index = 206.835 - (1.3 * avrg_stns_len) - (60.1 * avrg_wrd)
 
-    print('Предложений:', sentences)
-    print('Слов:', words)
-    print('Слогов:', syllables)
-    print('Средняя длина предложения в словах:', avrg_stns_len)
-    print('Средняя длина слова в слогах:', avrg_wrd)
-    print('Индекс удобочитаемости Флеша:', index)
+    print(lc.SENTENCES, sentences)
+    print(lc.WORD, words)
+    print(lc.SYLLABLES, syllables)
+    print(lc.AVERAGE_SENTENCES, avrg_stns_len)
+    print(lc.AVERAGE_WORD, avrg_wrd)
+    print(lc.INDEX_FLESH, index)
 
     if abs(index) > 65:
-        print('Простой английский текст.')
+        print(lc.ENGLISH_SIMPLE)
     elif abs(index) > 30:
-        print('Немного трудно читать.')
+        print(lc.DIFFICULT)
     else:
-        print('Очень трудно читать.')
+        print(lc.VERY_HARD)
 
     testimonial = tb.TextBlob(text)
-    print('Объективность: ', end='')
-    print(format(testimonial.sentiment.polarity * 100, '.1f') + '%')
+    print(lc.OBJECTIVITY, end='')
+    print(format(testimonial.sentiment.polarity * 100, '.1f')
+          + '%')
