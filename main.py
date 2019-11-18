@@ -1,6 +1,6 @@
-"""Case-study #3 Анализ текста
-Developers: Revtova L.
-            Arkhipova A.
+"""Case-study #3
+Developers: Revtova L.(50%)
+            Arkhipova A.(55%)
 
 """
 
